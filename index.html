@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthOS Habit Tracker</title>
+
+    <!-- Tailwind & Chart -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-6">
+
+<div class="max-w-7xl mx-auto">
+
+    <h1 class="text-3xl font-bold mb-4">
+        GrowthOS Habit Tracker
+    </h1>
+
+    <!-- Add Habit -->
+    <div class="flex gap-2 mb-4">
+        <input type="text" id="goalInput"
+            placeholder="Enter habit..."
+            class="border p-2 rounded w-64">
+
+        <button onclick="addGoal()"
+            class="bg-blue-600 text-white px-4 rounded">
+            Add
+        </button>
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+        <table class="border-collapse border w-full">
+            <thead>
+                <tr>
+                    <th class="border p-2">Habit</th>
+
+                    <!-- Days -->
+                    <script>
+                        for(let i=1;i<=31;i++){
+                            document.write(`<th class="border p-2">${i}</th>`);
+                        }
+                    </script>
+
+                    <th class="border p-2">%</th>
+                </tr>
+            </thead>
+
+            <tbody id="gridBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Chart -->
+    <div class="mt-6">
+        <canvas id="chart" height="100"></canvas>
+    </div>
+
+</div>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
